@@ -1,24 +1,33 @@
 ## xd
 `xd` is tiny command line program written in Go that generates dmenu based on provided easily configurable yaml files.
 
+#### Installation and Usage
+```shell
+# Build
+make build
 
-#### Install
-```shell
+# Install
 sudo make install
-```
-#### Uninstall
-```shell
+
+# Uninstall
 sudo make uninstall
-```
-#### Usage
-```shell
-xd -config=/path/to/config.yaml -command=system -- -l 10 more dmenu args...
+
+# Usage:
+
+xd -config=/path/to/config.yaml -command=bluetooth -- -l 10 additional dmenu args...
+
+# -config - Specifies a particular configuration file to use. 
+#           Any config files in the default configuration directory will be ignored.
+# -command - Allows for the direct execution of a top-level command parsed from the configuration file. 
+#            This can be useful for binding shortcuts, such as in dwm/config.
+#            For instance: 'ctrl+shift+b' could map to 'xd -command bluetooth'
+
 ```
 
 #### Configuration
-The xd utility uses configuration files to define the commands it can run.
-If the `-config` flag is not provided when running xd,
-it will look for configuration files in the directory specified by `$XDG_CONFIG_HOME/xd/`.
+The xd utility uses configuration files to define the commands it can run. <br />
+If the `-config` flag is not provided when running xd, 
+it will look for configuration files in the directory specified by `$XDG_CONFIG_HOME/xd/`. <br />
 If this directory does not contain any configuration files, xd will automatically create a default one.
 
 Importantly, xd supports multiple configuration files.
