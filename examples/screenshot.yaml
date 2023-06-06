@@ -1,0 +1,6 @@
+- name: Screenshot
+  commands:
+    - name: Full Screen
+      cmd: scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -f -selection clipboard -target image/png -i $f >/dev/null 2>&1'
+    - name: Select
+      cmd: scrot '/tmp/%F_%T_$wx$h.png' -s -e 'xclip -f -selection clipboard -target image/png -i $f >/dev/null 2>&1'

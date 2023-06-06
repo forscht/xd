@@ -1,0 +1,3 @@
+- name: WiFi
+  list: nmcli device wifi list | sed '1d'
+  cmd: device=$(echo $selected | tr -s ' ' | cut -d ' ' -f1); nmcli device wifi connect $device

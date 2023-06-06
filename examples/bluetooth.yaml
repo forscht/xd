@@ -1,0 +1,25 @@
+- name: Bluetooth
+  commands:
+    - name: Power
+      list: 'if bluetoothctl show | grep -F -q "Powered: yes"; then echo "Current: On"; else echo "Current: Off"; fi'
+      commands:
+        - name: On
+          cmd: bluetoothctl power on
+        - name: Off
+          cmd: bluetoothctl power off
+    - name: Scan
+      list: 'if bluetoothctl show | grep -F -q "Discovering: yes"; then echo "Current: On"; else echo "Current: Off"; fi'
+      commands:
+        - name: On
+          cmd: bluetoothctl scan on
+        - name: Off
+          cmd: kill $(pgrep -f "bluetoothctl scan on"); bluetoothctl scan off
+    - name: Connect
+      list: bluetoothctl devices Paired | awk '{$1=""; sub(/^ /, ""); print $0}'
+      cmd: device=$(echo $selected | cut -d ' ' -f1); bluetoothctl connect "$device"
+    - name: Pair
+      list: bluetoothctl devices | awk '{$1=""; sub(/^ /, ""); print $0}'
+      cmd: device=$(echo $selected | cut -d ' ' -f1); bluetoothctl pair "$device"
+    - name: Remove
+      list: bluetoothctl devices Paired | awk '{$1=""; sub(/^ /, ""); print $0}'
+      cmd: device=$(echo $selected | cut -d ' ' -f1); bluetoothctl remove "$device"

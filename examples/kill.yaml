@@ -1,0 +1,3 @@
+- name: Kill
+  list: ps -u $USER -o pid,%mem,%cpu,comm | sort -b -k2 -r | sed -n '1!p'
+  cmd: kill -15 $(echo $selected | awk '{print $1}') 2>/dev/null

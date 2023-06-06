@@ -1,0 +1,3 @@
+- name: SSH
+  list: 'grep "^Host\s\+[^*]" ~/.ssh/config | cut -d " " -f 2-'
+  cmd: st -e ssh -t $selected || exit 0

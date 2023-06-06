@@ -1,0 +1,3 @@
+- name: Mpv
+  prompt: "Paste URL... [Ctrl+Shift+Y] "
+  cmd: mpv $selected
