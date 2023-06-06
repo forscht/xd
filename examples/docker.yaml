@@ -1,14 +1,16 @@
 - name: Docker
   commands:
-      - name: Images
-        list: docker images
-        cmd: echo $selected
-      - name: Containers
-        list: docker ps -a
-        cmd: echo $selected
-      - name: Start
-        list: docker ps -a --format "{{.Names}}"
-        cmd: docker start "$selected"
-      - name: Stop
-        list: docker ps --format "{{.Names}}"
-        cmd: docker stop "$selected"
+    - name: Start Container
+      list: docker ps -a --format "{{.Names}}"
+      cmd: docker start "$selected"
+    - name: Stop Container
+      list: docker ps --format "{{.Names}}"
+      cmd: docker stop "$selected"
+    - name: Prune
+      commands:
+        - name: Prune Container
+          cmd: docker container prune -f
+        - name: Prune Volumes
+          cmd: docker volume prune -f
+        - name: Prune Images
+          cmd: docker image prune -f

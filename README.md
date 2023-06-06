@@ -7,23 +7,18 @@ https://github.com/forscht/xd/assets/59018146/63e8a5e6-0c23-4a42-9799-229a87cf90
 ```shell
 # Build
 make build
-
 # Install
 sudo make install
-
 # Uninstall
 sudo make uninstall
 
 # Usage:
-
 xd -config=/path/to/config.yaml -command=bluetooth -- -l 10 additional dmenu args...
-
 # -config - Specifies a particular configuration file to use. 
 #           Any config files in the default configuration directory will be ignored.
 # -command - Allows for the direct execution of a top-level command parsed from the configuration file. 
 #            This can be useful for binding shortcuts, such as in dwm/config.
 #            For instance: 'ctrl+shift+b' could map to 'xd -command bluetooth'
-
 ```
 
 #### Configuration
