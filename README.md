@@ -2,20 +2,20 @@
 `xd` is tiny command line program written in Go that generates dmenu based on provided easily configurable yaml files.
 
 
-### Install
+#### Install
 ```shell
 sudo make install
 ```
-### Uninstall
+#### Uninstall
 ```shell
 sudo make uninstall
 ```
-### Usage
+#### Usage
 ```shell
 xd -config=/path/to/config.yaml -command=system -- -l 10 more dmenu args...
 ```
 
-### Configuration
+#### Configuration
 The xd utility uses configuration files to define the commands it can run.
 If the `-config` flag is not provided when running xd,
 it will look for configuration files in the directory specified by `$XDG_CONFIG_HOME/xd/`.
@@ -54,7 +54,7 @@ Here's an example of a configuration file with detailed explanation:
 
 For additional examples of configuration files, please refer to the [examples](examples) directory in this repository.
 
-### Pass Args to Dmenu
+#### Pass Args to Dmenu
 
 You can pass additional arguments to dmenu after specifying the `-config` or `-command` flags.
 It is crucial to add `--` after your flags to indicate the end of command options
@@ -65,5 +65,5 @@ For example, to pass the `-l` argument (which controls the number of lines dmenu
 xd -config=/path/to/config.yaml -- -l 15
 ```
 
-### License
+#### License
 `xd` is released under the [MIT License](LICENSE).
