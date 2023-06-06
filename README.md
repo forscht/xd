@@ -1,6 +1,8 @@
 ## xd
 `xd` is tiny command line program written in Go that generates dmenu based on provided easily configurable yaml files.
 
+https://github.com/forscht/xd/assets/59018146/63e8a5e6-0c23-4a42-9799-229a87cf90e3
+
 #### Installation and Usage
 ```shell
 # Build
